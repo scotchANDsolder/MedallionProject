@@ -1,40 +1,4 @@
-/*
- 1-14-2013
- Spark Fun Electronics
- Nathan Seidle
- 
- This code is public domain but you buy me a beer if you use this and we meet someday (Beerware license).
- 
- When the ATtiny senses water between two pins, go crazy. Make noise, blink LED.
- 
- Created to replace the water sensor in my Nauticam 17401 underwater enclosure. The original board
- ate up CR2032s, sorta kinda worked some of the time, and had pretty low quality assembly. Did I mention it goes for $100?!
- We have the technology. We can make it better!
- 
- You will need to have ATtiny supported for Arduino installed. See http://hlt.media.mit.edu/?p=1695 for more info.
- 
- You will need to configure the ATtiny to run at 8MHz so that serial and other parts of the code work correctly.
- See "Configuring the ATtiny to run at 8MHz" on http://hlt.media.mit.edu/?p=1695 for more info.
- 
- To program:
- Select USBtinyISP from the programmer menu (we recommend AVR Tiny Programmer https://www.sparkfun.com/products/11460)
- Select ATtiny85 w/ Internal 8MHz from the board menu
- 
- We take a series of readings of the water sensor at power up. We then wait for a deviation of more than
- 100 from the average before triggering the alarm.
- 
- The alarm will run for a minimum of 2 seconds before shutting down.
- 
- The original board had the following measurements @ 3.21V:
- In alarm mode: ~30mA with LED on and making sound
- Off: 10nA. Really? Wow. 
- 
- This firmware doesn't yet put any power savings in place but should be possible (wake up every few second and take measurement).
- 
- Currently uses 12.2mA in idle.
- Now down to 0.005mA.
- 
- */
+
 
 #include <avr/sleep.h> //Needed for sleep_mode
 
